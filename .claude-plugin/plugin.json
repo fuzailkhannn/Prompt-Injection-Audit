@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "prompt-injection-audit",
+  "version": "1.0.0",
+  "description": "Read-only auditor for LLM-backed features. Finds prompt-injection exposure across eight checks and reports it with file:line evidence, OWASP LLM Top 10 mappings, and an explicit could-not-verify list. Findings only, no fixes.",
+  "author": {
+    "name": "Fuzail Khan",
+    "url": "https://github.com/fuzailkhannn"
+  },
+  "homepage": "https://github.com/fuzailkhannn/Prompt-Injection-Audit",
+  "repository": "https://github.com/fuzailkhannn/Prompt-Injection-Audit",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "prompt-injection",
+    "llm",
+    "owasp",
+    "audit",
+    "code-review"
+  ]
+}

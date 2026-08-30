@@ -1,4 +1,4 @@
-"""Document Q&A view — scoped version. User asks about one of their own documents."""
+"""Document Q&A view: scoped version. User asks about one of their own documents."""
 import json
 import logging
 from django.http import JsonResponse, HttpResponseForbidden

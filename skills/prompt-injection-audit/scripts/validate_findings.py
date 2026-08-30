@@ -10,7 +10,7 @@ Exit code 0 = valid, 1 = invalid (errors printed to stderr).
 
 This script is the executable definition of the output schema described in
 references/report-format.md. It checks structure and the invariants that are easy
-to get wrong under pressure — it does NOT judge whether the findings are correct.
+to get wrong under pressure. It does NOT judge whether the findings are correct.
 The load-bearing rule it enforces: every FAIL finding must carry file:line
 evidence. A finding with no evidence is not a finding; it belongs in
 could_not_verify.
@@ -95,7 +95,7 @@ def validate(doc):
         if status == "FAIL" and len(evidence) == 0:
             err(
                 errors,
-                f"{where} is FAIL but has no evidence — a finding without file:line "
+                f"{where} is FAIL but has no evidence. A finding without file:line "
                 f"evidence is not a finding; move it to could_not_verify",
             )
         for j, ev in enumerate(evidence):
@@ -114,7 +114,7 @@ def validate(doc):
         else:
             for oid in owasp:
                 if oid not in OWASP_IDS:
-                    err(errors, f"{where}.owasp contains invalid id '{oid}' (expected LLM01–LLM10)")
+                    err(errors, f"{where}.owasp contains invalid id '{oid}' (expected LLM01 to LLM10)")
             if not owasp and f.get("check") != "G5":
                 err(errors, f"{where}.owasp is empty but only G5 may omit an OWASP mapping")
 
@@ -130,7 +130,7 @@ def validate(doc):
     if clean is False and len(findings) == 0:
         err(
             errors,
-            "audit.clean is false but findings is empty — set clean=true and use the "
+            "audit.clean is false but findings is empty. Set clean=true and use the "
             "clean-report sentence, or add the findings",
         )
 
@@ -164,11 +164,11 @@ def main():
         print(__doc__)
         sys.exit(2)
 
-    raw = sys.stdin.read() if sys.argv[1] == "-" else open(sys.argv[1]).read()
+    raw = sys.stdin.read() if sys.argv[1] == "-" else open(sys.argv[1], encoding="utf-8").read()
     try:
         doc = json.loads(raw)
     except json.JSONDecodeError as e:
-        print(f"INVALID: not parseable JSON — {e}", file=sys.stderr)
+        print(f"INVALID: not parseable JSON. {e}", file=sys.stderr)
         sys.exit(1)
 
     errors = validate(doc)

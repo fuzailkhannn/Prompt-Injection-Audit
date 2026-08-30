@@ -1,4 +1,4 @@
-"""Support chatbot endpoint — scoped version. Answers a customer's own account questions."""
+"""Support chatbot endpoint: scoped version. Answers a customer's own account questions."""
 import json
 import logging
 from fastapi import FastAPI, Depends, HTTPException

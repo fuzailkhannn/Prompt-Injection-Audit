@@ -1,4 +1,4 @@
-// app/api/assistant/route.ts — AI assistant over the user's projects.
+// app/api/assistant/route.ts: AI assistant over the user's projects.
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { createClient } from "@supabase/supabase-js";

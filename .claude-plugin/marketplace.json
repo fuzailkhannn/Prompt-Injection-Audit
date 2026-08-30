@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "prompt-injection-audit",
+  "description": "Prompt-injection auditing for LLM-backed features.",
+  "owner": {
+    "name": "Fuzail Khan",
+    "url": "https://github.com/fuzailkhannn"
+  },
+  "plugins": [
+    {
+      "name": "prompt-injection-audit",
+      "description": "Audits a chatbot, AI assistant, agent, or RAG app for prompt-injection exposure. Read-only: findings with file:line evidence, not fixes.",
+      "source": "./",
+      "category": "security",
+      "keywords": ["security", "prompt-injection", "llm", "owasp"]
+    }
+  ]
+}

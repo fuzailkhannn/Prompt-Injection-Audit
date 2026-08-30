@@ -1,4 +1,4 @@
-// app/api/assistant/route.ts — AI assistant over the user's projects (RLS-enforced).
+// app/api/assistant/route.ts: AI assistant over the user's projects (RLS-enforced).
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { createServerClient } from "@supabase/ssr";
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
   // Anon-key client that carries the user's auth context. Row-Level Security
   // policies on `projects` restrict every row to its owner at the database
-  // level — the credential cannot read other users' rows even if asked to.
+  // level: the credential cannot read other users' rows even if asked to.
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

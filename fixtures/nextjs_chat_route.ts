@@ -1,4 +1,4 @@
-// app/api/chat/route.ts — chat endpoint for the dashboard assistant.
+// app/api/chat/route.ts: chat endpoint for the dashboard assistant.
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { sql } from "@/lib/db";
