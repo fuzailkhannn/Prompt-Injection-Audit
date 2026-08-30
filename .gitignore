@@ -1,0 +1,24 @@
+# Python (scripts/validate_findings.py)
+__pycache__/
+*.py[cod]
+
+# Packaged skill uploads (see README "Claude apps")
+*.skill
+prompt-injection-audit.zip
+
+# Audit output people generate while using the skill
+findings.json
+
+# Local skill installs made inside this repo
+.claude/
+
+# Secrets
+.env
+.env.*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
