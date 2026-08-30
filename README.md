@@ -72,7 +72,7 @@ git clone https://github.com/fuzailkhannn/Prompt-Injection-Audit.git
 Copy-Item -Recurse Prompt-Injection-Audit\skills\prompt-injection-audit "$env:USERPROFILE\.claude\skills\"
 ```
 
-Claude Code discovers it automatically; no restart needed.
+Claude Code discovers it automatically; no restart needed. Note that this path gives you the skill but not the `/prompt-injection-audit` slash command, since commands ship with the plugin. Ask in plain language instead, or install as a plugin.
 
 ### Claude apps (claude.ai / desktop)
 
@@ -86,7 +86,19 @@ Then add it from the app's skill/capabilities settings. See the [Claude support 
 
 ## Using it
 
-There is no slash command. The skill loads itself when your request matches what it does, so just ask in plain language and point it at the code:
+Two ways, and they run the same audit.
+
+**Slash command** (plugin installs only, since commands ship with the plugin):
+
+```
+/prompt-injection-audit app/api/chat/route.ts
+/prompt-injection-audit src/agents/
+/prompt-injection-audit
+```
+
+With no argument it finds the LLM-backed code in the working directory and tells you which files it picked.
+
+**Plain language** (works on every install, including the plain-skill copy). The skill loads itself when your request matches what it does:
 
 ```
 Audit app/api/chat/route.ts for prompt injection.
@@ -201,6 +213,8 @@ Prompt-Injection-Audit/
 ├── .claude-plugin/
 │   ├── plugin.json              # plugin manifest
 │   └── marketplace.json         # lets the repo serve as its own marketplace
+├── commands/
+│   └── prompt-injection-audit.md  # the /prompt-injection-audit slash command
 ├── skills/
 │   └── prompt-injection-audit/  # the skill itself (this is what you copy for a plain install)
 │       ├── SKILL.md             # the audit: stance, procedure, the 8 checks, grading rules
