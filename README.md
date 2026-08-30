@@ -1,5 +1,6 @@
 # Prompt-Injection Audit
 
+[![CI](https://github.com/fuzailkhannn/Prompt-Injection-Audit/actions/workflows/ci.yml/badge.svg)](https://github.com/fuzailkhannn/Prompt-Injection-Audit/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-8A63D2.svg)](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
 [![OWASP LLM Top 10](https://img.shields.io/badge/OWASP-LLM%20Top%2010%20%282025%29-1f2328.svg)](https://genai.owasp.org/llm-top-10/)
