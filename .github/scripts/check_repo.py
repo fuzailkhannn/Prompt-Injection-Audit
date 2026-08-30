@@ -48,6 +48,18 @@ check("plugin.json name matches skill", plugin["name"] == name, plugin["name"])
 check("marketplace lists the plugin",
       any(p["name"] == plugin["name"] for p in market["plugins"]))
 
+# --- 2b. Slash command ------------------------------------------------------
+cmd_path = os.path.join(ROOT, "commands", f"{name}.md")
+check("slash command file exists", os.path.isfile(cmd_path), f"commands/{name}.md")
+if os.path.isfile(cmd_path):
+    cmd = read("commands", f"{name}.md")
+    cfm = cmd.split("---")[1]
+    cdesc = re.search(r"^description:\s*(.+)$", cfm, re.M)
+    check("command has a description", cdesc is not None)
+    check("command passes the target through", "$ARGUMENTS" in cmd)
+    check("command names the skill it invokes", name in cmd)
+    check("README documents the slash command", f"/{name}" in read("README.md"))
+
 # --- 3. Files SKILL.md points at actually exist ------------------------------
 for ref in re.findall(r"`((?:references|scripts)/[\w.\-/]+)`", raw):
     check(f"SKILL.md reference exists: {ref}", os.path.isfile(os.path.join(SKILL, ref)))
